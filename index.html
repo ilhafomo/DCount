@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WJ&ensp;||&ensp;As Time Goes By</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <link rel="icon" href="favicon-16x16.png" type="image/gif" sizes="16x16">
+        <link rel="stylesheet" href="css.css">
+        <link rel="stylesheet" href="hover.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+        <script src="time.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+
+    </head>
+    <body>
+        <div class="bg-image"></div>
+
+        <div class="container">
+            <div class="container-timer">
+                <div class="dec"><img src="dec.png" width="60"></div>
+                <div class="header-quote">시간이 날다&emsp;&emsp; Cómo pasa el tiempo&emsp;&emsp; 時間は飛ぶ&emsp;&emsp; Le temps passe vite</div>
+                <div class="countup" id="countup1">
+                    <div style="display: inline-block; margin: 0 20px 0 20px;">
+                        <div><span class="timeel days">00</span></div>
+                        <div><span class="timeel timeRefDays">Days</span></div>
+                    </div>
+                    <div style="display: inline-block; margin: 0 20px 0 20px;">
+                        <div><span class="timeel hours">00</span></div>
+                        <div><span class="timeel timeRefHours">Hours</span></div>
+                    </div>
+                    <div style="display: inline-block; margin: 0 20px 0 20px;">
+                        <div><span class="timeel minutes">00</span></div>
+                        <div><span class="timeel timeRefMinutes">Minutes</span></div>
+                    </div>
+                    <div style="display: inline-block; margin: 0 20px 0 20px;">
+                        <div><span class="timeel seconds">00</span></div>
+                        <div><span class="timeel timeRefSeconds">Seconds</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"><a href="#popup-article" class="open-popup hvr-shutter-out-horizontal">Capsule</a>&ensp;&ensp;&ensp;Best Things in Life are Worth Waiting for, Fighting for</div>
+        </div>
+
+        <div id="popup-article" class="popup">
+            <div class="popup__block">
+                <div id="containers"></div>
+                <a href="#" class="popup__close">close</a>
+            </div>
+        </div>
+
+
+        <script>
+            anychart.onDocumentReady(function () {
+                var data = [
+                    {"x": "😂", "value": 11618},
+                    {"x": "🙈", "value": 7931},
+                    {"x": "🤔", "value": 2037},
+                    {"x": "🙄", "value": 241},
+                    {"x": "🙊", "value": 1476},
+                    {"x": "😏", "value": 495},
+                    {"x": "💃", "value": 69},
+                    {"x": "🏃", "value": 157},
+                    {"x": "😕", "value": 30},
+                    {"x": "😢", "value": 92},
+                    {"x": "😨", "value": 37},
+                    {"x": "🙇", "value": 57},
+                    {"x": "🤢", "value": 25},
+                    {"x": "❤", "value": 5},
+                    {"x": "🙏🏻", "value": 19},
+                    {"x": "😩", "value": 61},
+                    {"x": "✌🏻", "value": 7},
+                    {"x": "💰", "value": 7},
+                    {"x": "👉", "value": 169},
+                    {"x": "👈", "value": 206},
+                    {"x": "🤷🏻", "value": 3},
+                    {"x": "😞", "value": 9},
+                    {"x": "😰", "value": 9},
+                    {"x": "🙉", "value": 10},
+                    {"x": "🙌🏻", "value": 6},
+                    {"x": "🙆‍♂", "value": 164},
+                    {"x": "🙌🏻", "value": 6},
+                    {"x": "😳", "value": 34},
+                    {"x": "🙆🏿", "value": 176},
+                    {"x": "😎", "value": 152},
+                    {"x": "😫", "value": 167},
+                    {"x": "😭", "value": 521},
+                    {"x": "😘", "value": 16},
+                    {"x": "😍", "value": 58},
+                    {"x": "😪", "value": 6},
+                    {"x": "🤦", "value": 212},
+                    {"x": "🤤", "value": 3},
+                    {"x": "😤", "value": 240},
+                    {"x": "😱", "value": 6},
+                    {"x": "🤣", "value": 204},
+                    {"x": "😒", "value": 44}
+                ];
+// create a tag (word) cloud chart
+                var chart = anychart.tagCloud(data);
+// set a chart title
+                chart.title('')
+                // set an array of angles at which the words will be laid out
+                chart.angles([0, -45, 90])
+                // enable a color range
+//                chart.colorRange(true);
+
+                // set the color range length
+                chart.colorRange().length('90%');
+
+// display the word cloud chart
+                chart.container("containers");
+                chart.draw();
+            });
+        </script>
+    </body>
+</html>

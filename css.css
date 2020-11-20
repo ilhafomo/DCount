@@ -1,0 +1,292 @@
+/*.countup {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 35px;
+    text-align: center;
+    margin: 120px;
+}
+.countup .timeel {
+    display: inline-block;
+    padding: 10px;
+    background: #ffd0d0;
+    margin: 0;
+    color: #8e4972;
+    min-width: 8.5rem;
+    width: 10rem;
+}
+.countup span[class*="timeRef"] {
+    vertical-align: middle;
+    background: #e2c9c9;
+    font-weight: bold;
+    color: #503131;
+    width: 10rem;
+}*/
+
+body, html {
+    height: 100%;
+    margin:0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url("background.jpg");
+
+    /* Add the blur effect */
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(5px);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.container {
+    /*    background-color: rgb(0,0,0);  Fallback color 
+        background-color: rgba(212 247 205 / 0.78);  Black w/opacity/see-through 
+        font-weight: bold;
+        border: 3px solid #afc3d0bf;*/
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*        z-index: 2;*/
+    width: 80%;
+    margin-top: 15%;
+    padding: 10px;
+    text-align: center;
+}
+
+.header-quote{
+    font-size: 15px;
+    padding: 10px 0 0 0;
+    color: #f79898;
+    font-weight: 500;
+    text-shadow: 2px 0px 4px #251818;
+    font-family: 'Comfortaa', cursive;
+    word-spacing: 4px;
+}
+
+.container-timer{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+}
+
+.countup {
+    font-size: 3em;
+    font-weight: 100;
+    color: white;
+    text-shadow: 0 0 20px #48c8ff;
+}
+
+.countup div {
+    /*  display: inline-block;*/
+    min-width: 90px;
+}
+
+.countup div span {
+    color: #cbedf5;
+    display: block;
+    font-size: 0.85em;
+    font-weight: 650;
+}
+
+.countup div span[class*="timeRef"] {
+    color: #8ff588;
+    display: block;
+    font-size: 0.2em;
+    font-weight: 400;
+}
+
+.footer{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1em;
+    margin-top: 10px;
+    margin-left: 70px;
+    color: #e3efe7;
+    text-shadow: 0 0 20px #48c8ff;
+}
+
+.dec{
+    padding: 5px 0 5px 0;
+
+}
+
+
+@media (max-width: 1024px) and (orientation: portrait){ /* tablet and smaller */
+    body:after{
+        position: absolute;
+        z-index: 9999;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        content: "";
+        background: #212121 url(orientation.png) 0 0 no-repeat; /* replace with an image that tells the visitor to rotate the device to landscape mode */
+        background-size: 100% auto;
+        opacity: 0.98;
+    }
+
+}
+
+#containers {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* popup */
+
+.popup{
+    width: 100%;
+    height: 100vh;
+    display: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#popup-article:target{
+    display: flex;
+}
+
+.popup::before{
+    content: "";
+    box-sizing: border-box;
+    width: 71%;
+    background-color: #fff;
+    position: fixed;
+    left: 14%;
+    top: 50%;
+    will-change: height, top;
+    animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
+}
+
+.popup::after{
+    content: "";
+    width: 0;
+    background-color: #fff;
+    /*    z-index: 9998;*/
+    will-change: width, opacity;
+    animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+}
+
+@keyframes line-animation{
+
+    0%{
+        width: 0;
+        opacity: 1;
+    }
+
+    99%{
+        width: 100%;
+        opacity: 1;
+    }
+
+    100%{
+        width: 100%;
+        opacity: 0;
+    }  
+}
+
+@keyframes open-animation{
+
+    0%{
+        height: 0;
+        top: 50%;
+    }
+
+    100%{
+        height: 70vh;
+        top: 15%;
+    }
+}
+
+.popup__block{
+    /*    height: calc(100vh - 40px);*/
+    height: 100%;
+    width: 85%;
+    padding: 8% 15%;
+    box-sizing: border-box;
+    position: relative;
+
+    margin: auto;
+    overflow: auto;
+    animation: fade .5s ease-out 1.3s both;
+}
+
+@keyframes fade{
+
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.popup__title{
+    font-size: 1.5rem;
+    margin: 0 0 1em;
+}
+
+.popup__close{
+    width: 2rem;
+    height: 2rem;
+    text-indent: -9999px;
+
+    position: fixed;
+    top: 21%;
+    right: 18%;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDYuNDFMMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+}
+
+p{
+    margin: 0;
+    line-height: 1.5;
+}
+
+p:nth-child(n+2){
+    margin-top: 1rem;
+}
+
+.open-popup{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: .4rem 1rem;
+    border: 1px solid;
+
+}
+
+
+@media screen and (min-width : 768px) and (max-width : 1024px) and (orientation: landscape){
+    .container{
+        top: 19%;
+    }
+
+    .popup__block{
+        padding: 8% 15%;
+    }
+}
